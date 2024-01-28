@@ -10,7 +10,7 @@ tabela = lista_tabela[1]
 tabela.columns = tabela.iloc[0]
 salario = tabela['Valor Salário'][1]
 
-# Substitua 'seu_arquivo.pdf' pelo caminho do seu arquivo PDF
+# Caminho arquivo PDF
 pdf_path = 'FICHA DE REGISTRO.pdf'
 
 # Criar um objeto LAParams com vários parâmetros
@@ -48,13 +48,6 @@ for linha in linhas:
 
 # Criar um DataFrame a partir do dicionário
 df_dados = pd.DataFrame([dados])
-
-# Remover os números da coluna '1.412,00  Modo Pgto' e renomear a coluna
-df_dados['1.412,00  Modo Pgto'] = df_dados['1.412,00  Modo Pgto'].apply(lambda x: re.sub(r'\d', '', x))
-df_dados.rename(columns={'1.412,00  Modo Pgto': 'Modo Pgto'}, inplace=True)
-
-# # Selecionar colunas desejadas
-# df_selecionado = df_dados[['Nome', 'Remuneração', '1.412,00  Modo Pgto']]
 
 # Selecionar apenas as colunas desejadas
 colunas_desejadas = [
